@@ -18,11 +18,8 @@
                         var n_countries = res.data.attributes.signatures_by_country.length;
                         $("#total_signs").text(n_signs);
                         $("#total_countries").text(n_countries);
-                        var sort_by_country = res.data.attributes.signatures_by_country.sort(function(a, b) {
-                            return b.signature_count - a.signature_count;
-                        })
-                        sort_by_country = sort_by_country.map(function(a) {
-                            return [a.name, a.signature_count]
+                        var sort_by_country = res.data.attributes.signatures_by_country.map(function(a) {
+                            return [a.name, a.signature_count];
                         });
                         var data = [['Country', '# Signatures']];
                         data = data.concat(sort_by_country);
